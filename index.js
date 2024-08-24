@@ -1,30 +1,23 @@
-//Moves array, now in global scope so i can use it in getHumanChoice function as well
+//Creating a const array which I can use to reference for the getHumanChoice function as well
 const moves = ["rock", "paper", "scissors"];
-//Initalizing the scores
-let humanScore = 0;
-let computerScore = 0;
 
-
-//Create a function getComputerChoice
+//Create a function called getComputerChoice
 function getComputerChoice() {
-    //This function will return one of the string values: "rock", "paper" or "scissors" RANDOMLY
-    const randomMove = moves[Math.floor(Math.random() * moves.length)];
-    return randomMove;
+    //Using Math.random() * moves.length, select a random element from the array (Remember to floor the walue since it's a floating point number)
+    let computerMove = moves[Math.floor(Math.random() * moves.length) ];
+    //Return the value
+    return computerMove;
 }
 
+//For testing out if the randomization works properly
 console.log(getComputerChoice());
 
-//Create a function for taking the human choice
+
+//Create a function called getHumanChoice
 function getHumanChoice() {
-    //ask the user for their move
-    let humanMove = prompt("Make your move:").toLowerCase() //convert it to lowercase for ease of use
-    //if user has entered an unexpected value, warn the user then ask for their input again
-    if(!(humanMove in moves)) {
-        alert("Enter rock, paper or scissors please.");
-        humanMove = prompt("Make your move:").toLowerCase()
-    }
-    //return their answer
-    return humanMove;
+    //Get the user's choice through a prompt
+    let humanChoice = prompt("Make your move: ");
+    console.log(humanChoice);
 }
 
-console.log(getHumanChoice());
+getHumanChoice();
