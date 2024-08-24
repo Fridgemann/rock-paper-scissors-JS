@@ -60,6 +60,7 @@ function playRound(humanMove, computerMove) {
         case "You lose!":
             computerScore += 1;
     }
+    //Lines for seeing the scores
     console.log(`computer score: ` ,computerScore);
     console.log(`human score: ` ,humanScore);
     return outcomes[humanMove][computerMove];
