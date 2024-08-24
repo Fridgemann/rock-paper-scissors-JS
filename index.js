@@ -15,9 +15,26 @@ console.log(getComputerChoice());
 
 //Create a function called getHumanChoice
 function getHumanChoice() {
-    //Get the user's choice through a prompt
-    let humanChoice = prompt("Make your move: ");
-    console.log(humanChoice);
+    isMove = false;
+    //WHILE NOT a move
+    while(!(isMove)) {
+        //GET User's choice with a prompt
+        let userMove = prompt("Make your move:");
+        //CONVERT userMove to all lowerCase so there is no variances simply because of case sensitivity
+        let userMoveLowerCased = userMove.toLowerCase();
+        //IF 'moves' INCLUDES userMoveLowerCased, that's our humanChoice; flip the isMove to true and end the loop
+        if(moves.includes(userMoveLowerCased)) {
+            isMove = true;
+            return userMoveLowerCased;
+        }
+        //IF the user does not enter a valid move type, put up an alert
+        else {
+            alert("Please enter an appropriate move type.");
+        }
+    }
+
+    
 }
 
-getHumanChoice();
+
+console.log(getHumanChoice());
