@@ -83,6 +83,12 @@ function playGame() {
         playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice());
         roundsNum -= 1;
     }
+    if(humanScore > computerScore) {
+        console.log(`Congrats! You won the best of 5 with ${humanScore} rounds!`);
+    }
+    else {
+        console.log("Computer got the better of you. Better luck next time.");
+    }
 }
 
 playGame();
