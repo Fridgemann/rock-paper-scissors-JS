@@ -1,9 +1,7 @@
 //Creating a const array which I can use to reference for the getHumanChoice function as well
 const moves = ["rock", "paper", "scissors"];
 
-//Creating two variables for the human and computer score
-let humanScore = 0;
-let computerScore = 0;
+
 
 //Create a function called getComputerChoice
 function getComputerChoice() {
@@ -44,6 +42,9 @@ function getHumanChoice() {
 
 //Creating the function for round logic, two parameters which will be the human's and computer's moves
 function playRound(humanMove, computerMove) {
+    //Creating two variables for the human and computer score
+    let humanScore = 0;
+    let computerScore = 0;
     console.log(`You chose: ${humanMove}`);
     console.log(`Computer chose: ${computerMove}`);
     //Second index is for computer's move so set the outcome accordingly
@@ -53,20 +54,25 @@ function playRound(humanMove, computerMove) {
         "paper": {"rock": "You win!", "paper": "Tie!", "scissors":"You lose!"},
         "scissors": {"rock": "You lose!", "paper": "You win!", "scissors": "Tie!"}
     }
+
+    let result = outcomes[humanMove][computerMove];
+
     //SWITCH statement to decide which score to increment
-    switch(outcomes[humanMove][computerMove]) {
+    switch(result) {
         case "You win!":
             humanScore += 1;
+            break;
         case "You lose!":
             computerScore += 1;
+            break;
     }
     //Lines for seeing the scores
     console.log(`computer score: ` ,computerScore);
     console.log(`human score: ` ,humanScore);
-    return outcomes[humanMove][computerMove];
+    console.log(result);
 }
 
-console.log(playRound(humanMove=getHumanChoice(), computerMove=getComputerChoice()))
+playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice()) ;
 
 
 
