@@ -1,6 +1,9 @@
 //Creating a const array which I can use to reference for the getHumanChoice function as well
 const moves = ["rock", "paper", "scissors"];
 
+//Creating two variables for the human and computer score
+let humanScore = 0;
+let computerScore = 0;
 
 
 //Create a function called getComputerChoice
@@ -42,9 +45,6 @@ function getHumanChoice() {
 
 //Creating the function for round logic, two parameters which will be the human's and computer's moves
 function playRound(humanMove, computerMove) {
-    //Creating two variables for the human and computer score
-    let humanScore = 0;
-    let computerScore = 0;
     console.log(`You chose: ${humanMove}`);
     console.log(`Computer chose: ${computerMove}`);
     //Second index is for computer's move so set the outcome accordingly
@@ -72,7 +72,20 @@ function playRound(humanMove, computerMove) {
     console.log(result);
 }
 
-playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice()) ;
+//playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice());
+
+
+// A single round is fully playable with the playRound function
+// Extend it to 5 rounds in a playGame() function
+function playGame() {
+    let roundsNum = 5;
+    while(roundsNum > 0) {
+        playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice());
+        roundsNum -= 1;
+    }
+}
+
+playGame();
 
 
 
