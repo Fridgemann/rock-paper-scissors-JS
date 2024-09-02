@@ -72,26 +72,10 @@ function playRound(humanMove, computerMove) {
     console.log(result);
 }
 
-//playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice());
+playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice());
 
 
-// A single round is fully playable with the playRound function
-// Extend it to 5 rounds in a playGame() function
-function playGame() {
-    let roundsNum = 5;
-    while(roundsNum > 0) {
-        playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice());
-        roundsNum -= 1;
-    }
-    if(humanScore > computerScore) {
-        console.log(`Congrats! You won the best of 5 with ${humanScore} rounds!`);
-    }
-    else {
-        console.log("Computer got the better of you. Better luck next time.");
-    }
-}
 
-playGame();
 
 
 
