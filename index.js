@@ -1,7 +1,8 @@
 //Creating a const array which I can use to reference for the getHumanChoice function as well
 const moves = ["rock", "paper", "scissors"];
-const buttons = document.querySelectorAll('button');
-let humanChoice;
+const rockBtn = document.querySelector('#rockBtn');
+const paperBtn = document.querySelector('#paperBtn');
+const scissorsBtn = document.querySelector('#scissorsBtn');
 
 //Creating two variables for the human and computer score
 let humanScore = 0;
@@ -20,74 +21,28 @@ function getComputerChoice() {
 //console.log(getComputerChoice());
 
 
-// //Create a function called getHumanChoice
-// function getHumanChoice() {
-//     isMove = false;
-//     //WHILE NOT a move
-//     while(!(isMove)) {
-//         //GET User's choice with a prompt
-//         let userMove = prompt("Make your move:");
-//         //CONVERT userMove to all lowerCase so there is no variances simply because of case sensitivity
-//         let userMoveLowerCased = userMove.toLowerCase();
-//         //IF 'moves' INCLUDES userMoveLowerCased, that's our humanChoice; flip the isMove to true and end the loop
-//         if(moves.includes(userMoveLowerCased)) {
-//             isMove = true;
-//             return userMoveLowerCased;
-//         }
-//         //IF the user does not enter a valid move type, put up an alert
-//         else {
-//             alert("Please enter an appropriate move type.");
-//         }
-//     }
+rockBtn.addEventListener('click', playRound);
 
-    
-// }
+paperBtn.addEventListener('click', playRound);
 
-//console.log(getHumanChoice());
+scissorsBtn.addEventListener('click', playRound);
+
 
 //Creating the function for round logic, two parameters which will be the human's and computer's moves
-function playRound(humanMove, computerMove) {
-    console.log(`You chose: ${humanMove}`);
-    console.log(`Computer chose: ${computerMove}`);
-    //Second index is for computer's move so set the outcome accordingly
-    //First index represents the user's choice, second index represents the correct result for the computer's move
-    let outcomes = {
-        "rock": {"rock": "Tie!", "paper": "You lose!", "scissors": "You win!"},
-        "paper": {"rock": "You win!", "paper": "Tie!", "scissors":"You lose!"},
-        "scissors": {"rock": "You lose!", "paper": "You win!", "scissors": "Tie!"}
-    }
-
-    let result = outcomes[humanMove][computerMove];
-
-    //SWITCH statement to decide which score to increment
-    switch(result) {
-        case "You win!":
-            humanScore += 1;
-            break;
-        case "You lose!":
-            computerScore += 1;
-            break;
-    }
-    //Lines for seeing the scores
-    console.log(`computer score: ` ,computerScore);
-    console.log(`human score: ` ,humanScore);
-    console.log(result);
+function playRound() {
+    let move = this.id.split('B')[0];
+    console.log(move);
+    
 }
 
-// playRound(humanMove = getHumanChoice(), computerMove = getComputerChoice());
-
-
-buttons.forEach((elem) => {
-    elem.addEventListener('click', () => {
-        humanChoice = elem.textContent;
-        console.log(humanChoice);
-    })
-})
 
 
 
 
 
+
+// How can I register the type of button pressed in a compact manner?
+// We simply need to feed the playRound with either a "rock", "paper" or "scissors"
 
 
 
