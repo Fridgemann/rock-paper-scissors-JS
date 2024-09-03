@@ -30,9 +30,16 @@ scissorsBtn.addEventListener('click', playRound);
 
 //Creating the function for round logic, two parameters which will be the human's and computer's moves
 function playRound() {
-    let move = this.id.split('B')[0];
-    console.log(move);
-    
+    let humanMove = this.id.split('B')[0];
+    let computerMove = getComputerChoice();
+    let outcomes = {
+        "rock": {"rock": "Tie!", "paper": "You lose!", "scissors": "You win!"},
+        "paper": {"rock": "You win!", "paper": "Tie!", "scissors": "You lose!"},
+        "scissors": {"rock": "You lose!", "paper": "You win!", "scissors": "Tie!"}
+    };
+    console.log(`You chose: ${humanMove}`);
+    console.log(`Computer chose: ${computerMove}`);
+    console.log(outcomes[humanMove][computerMove]);
 }
 
 
@@ -41,8 +48,6 @@ function playRound() {
 
 
 
-// How can I register the type of button pressed in a compact manner?
-// We simply need to feed the playRound with either a "rock", "paper" or "scissors"
 
 
 
