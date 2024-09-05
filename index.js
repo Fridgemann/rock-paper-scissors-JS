@@ -64,9 +64,19 @@ function playRound() {
             break;
     }
 
+    if (computerScore === 5 || humanScore === 5) {
+        if (computerScore === 5) {
+            resultDisplay.textContent = "Winner: PC";
+        }
+        else {
+            resultDisplay.textContent = "Winner: Player";
+        }
+    }
 
 }
 
+// Need to disable functionality of buttons after either PC or Player reaches 5
+// Need a way to display the outcome of the match after either PC or Player reaches 5
 
 
 
