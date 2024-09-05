@@ -12,7 +12,7 @@ const resultDisplay = document.createElement('p');
 
 
 
-humanScoreDisplay.textContent = `Player score: ${humanScore}`;
+humanScoreDisplay.textContent = `Player Score: ${humanScore}`;
 computerScoreDisplay.textContent = `PC Score: ${computerScore}`;
 
 
@@ -38,6 +38,11 @@ paperBtn.addEventListener('click', playRound);
 
 scissorsBtn.addEventListener('click', playRound);
 
+function disableButtons() {
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
+}
 
 //Creating the function for round logic, two parameters which will be the human's and computer's moves
 function playRound() {
@@ -67,16 +72,18 @@ function playRound() {
     if (computerScore === 5 || humanScore === 5) {
         if (computerScore === 5) {
             resultDisplay.textContent = "Winner: PC";
+            disableButtons();
         }
         else {
             resultDisplay.textContent = "Winner: Player";
+            disableButtons();
         }
     }
 
 }
 
 // Need to disable functionality of buttons after either PC or Player reaches 5
-// Need a way to display the outcome of the match after either PC or Player reaches 5
+
 
 
 

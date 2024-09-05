@@ -1,12 +1,31 @@
 body {
     text-align: center;
+    background-color: antiquewhite;
+}
+
+#title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #displays {
     font-size: 2em;
     font-weight: 900;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.buttons {
-    size: 1.5em;
+button {
+    cursor: pointer;
+    font-size: 1.5em;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px 20px;
+    margin: 10px;
+    font-style: italic;
+    border-radius: 20px;
+    background-color: cadetblue;
+    color: white;
+    transition: background-color 0.25s ease;
+}
+
+button:hover {
+    background-color: rgb(71, 101, 102);
 }
