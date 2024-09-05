@@ -3,11 +3,22 @@ const moves = ["rock", "paper", "scissors"];
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
-
-//Creating two variables for the human and computer score
+const displays = document.querySelector('#displays');
 let humanScore = 0;
 let computerScore = 0;
+const humanScoreDisplay = document.createElement('p');
+const computerScoreDisplay = document.createElement('p');
+const resultDisplay = document.createElement('p');
 
+
+
+humanScoreDisplay.textContent = `Player score: ${humanScore}`;
+computerScoreDisplay.textContent = `PC Score: ${computerScore}`;
+
+
+displays.appendChild(humanScoreDisplay);
+displays.appendChild(computerScoreDisplay);
+displays.appendChild(resultDisplay);
 
 //Create a function called getComputerChoice
 function getComputerChoice() {
@@ -30,16 +41,30 @@ scissorsBtn.addEventListener('click', playRound);
 
 //Creating the function for round logic, two parameters which will be the human's and computer's moves
 function playRound() {
+
     let humanMove = this.id.split('B')[0];
     let computerMove = getComputerChoice();
     let outcomes = {
-        "rock": {"rock": "Tie!", "paper": "You lose!", "scissors": "You win!"},
-        "paper": {"rock": "You win!", "paper": "Tie!", "scissors": "You lose!"},
-        "scissors": {"rock": "You lose!", "paper": "You win!", "scissors": "Tie!"}
+        "rock": {"rock": "Tie!", "paper": "Round lost!", "scissors": "Round won!"},
+        "paper": {"rock": "Round won!", "paper": "Tie!", "scissors": "Round lost!"},
+        "scissors": {"rock": "Round lost!", "paper": "Round won!", "scissors": "Tie!"}
     };
-    console.log(`You chose: ${humanMove}`);
-    console.log(`Computer chose: ${computerMove}`);
-    console.log(outcomes[humanMove][computerMove]);
+    let result = outcomes[humanMove][computerMove];
+    resultDisplay.textContent = result;
+    switch(result) {
+        case "Tie!":
+            break;
+        case "Round lost!":
+            computerScore += 1;
+            computerScoreDisplay.textContent = `PC Score: ${computerScore}`;
+            break;
+        case "Round won!":
+            humanScore += 1;
+            humanScoreDisplay.textContent = `Player Score: ${humanScore}`;
+            break;
+    }
+
+
 }
 
 
